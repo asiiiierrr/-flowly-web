@@ -116,7 +116,7 @@ header.scrolled{box-shadow:0 10px 30px -18px rgba(0,0,0,.6)}
 .proof{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:34px;font-size:15px;color:var(--on-dark-muted)}
 .proof span{display:inline-flex;align-items:center;gap:8px}
 .proof svg{width:18px;height:18px;color:var(--mint)}
-@media (max-width:900px){.home-hero .in{grid-template-columns:1fr}.home-hero{padding-block:48px 64px}}
+@media (max-width:900px){.home-hero .in{grid-template-columns:minmax(0,1fr)}.home-hero{padding-block:48px 64px}}
 
 /* teléfono */
 .device{justify-self:center;position:relative;width:min(100%,360px)}
@@ -414,7 +414,7 @@ textarea{min-height:120px;resize:vertical}
 .chat{background-color:#efeae2;background-image:radial-gradient(rgba(120,100,70,.10) 1.2px,transparent 1.3px),radial-gradient(rgba(120,100,70,.07) 1px,transparent 1.1px);background-size:22px 22px,22px 22px;background-position:0 0,11px 11px;padding-bottom:12px}
 .day{background:#fff;color:#54656f;box-shadow:0 1px .5px rgba(11,20,26,.13);font-weight:500}
 .home-hero .msg.in{display:block;margin:0;padding:9px 11px 18px;max-width:86%;gap:0}
-.msg{width:max-content;color:#111b21;box-shadow:0 1px .5px rgba(11,20,26,.13);font-size:13.5px}
+.msg{width:fit-content;color:#111b21;box-shadow:0 1px .5px rgba(11,20,26,.13);font-size:13.5px}
 .msg.out{background:#d9fdd3}
 .msg.in{background:#fff}
 .msg time{color:#667781;display:inline-flex;align-items:center;gap:3px}
