@@ -463,6 +463,13 @@ textarea{min-height:120px;resize:vertical}
 a.fab{width:auto;height:54px;padding:0 20px 0 16px;border-radius:999px;display:inline-flex;align-items:center;gap:9px;font:700 15px var(--body);color:#04210f}
 a.fab img{width:30px;height:30px;border-radius:50%;display:block}
 
+
+/* blindaje móvil (Safari) */
+html,body{overflow-x:clip;max-width:100%}
+.home-hero .in>*{min-width:0}
+.chat,.screen{min-width:0}
+.msg{overflow-wrap:anywhere}
+.home-hero .device{margin-inline:auto}
 /* legal */
 .legal{max-width:760px;display:flex;flex-direction:column;gap:22px}
 .legal h2{font-size:26px}
