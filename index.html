@@ -55,8 +55,8 @@ p{margin:0}
 .btn-wa{background:var(--wa);color:#04210f}
 .link{display:inline-flex;align-items:center;gap:6px;font-weight:600;text-decoration:none;color:var(--accent)}
 .link svg{width:16px;height:16px;transition:transform .2s}
-.link:hover svg{transform:translateX(3px)}
-@media (prefers-reduced-motion:no-preference){.btn{transition:transform .18s,filter .18s,box-shadow .18s}.btn:hover{transform:translateY(-2px);filter:brightness(1.05)}}
+@media (hover:hover) and (pointer:fine){.link:hover svg{transform:translateX(3px)}}
+@media (prefers-reduced-motion:no-preference){.btn{transition:transform .16s cubic-bezier(.23,1,.32,1),filter .18s,box-shadow .18s}@media (hover:hover) and (pointer:fine){.btn:hover{transform:translateY(-2px);filter:brightness(1.05)}}.btn:active{transform:scale(.97)}}
 
 /* cabecera */
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:41;background:var(--dark)}
@@ -86,10 +86,10 @@ header.scrolled{box-shadow:0 10px 30px -18px rgba(0,0,0,.6)}
   .mnav a[aria-current="page"]{color:var(--mint)}
   .mnav .btn{margin-top:14px;align-self:stretch}
   header .mnav.in{height:auto;align-items:stretch;gap:4px}
-  header .mnav.in{display:flex;max-height:0;overflow:hidden;padding-block:0;border-bottom-color:transparent;visibility:hidden;transition:max-height .5s cubic-bezier(.2,.7,.2,1),padding .5s cubic-bezier(.2,.7,.2,1),border-color .5s,visibility 0s .5s}
-  header .mnav.in.open{max-height:520px;padding-block:8px 18px;border-bottom-color:var(--dark-line);visibility:visible;transition:max-height .55s cubic-bezier(.2,.7,.2,1),padding .55s cubic-bezier(.2,.7,.2,1),border-color .5s,visibility 0s}
-  .mnav a{opacity:0;transform:translateY(-10px);transition:opacity .3s,transform .3s}
-  .mnav.open a{opacity:1;transform:none;transition:opacity .45s,transform .5s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--i,0)*45ms + 90ms)}
+  header .mnav.in{display:flex;max-height:0;overflow:hidden;padding-block:0;border-bottom-color:transparent;visibility:hidden;transition:max-height .26s cubic-bezier(.23,1,.32,1),padding .26s cubic-bezier(.23,1,.32,1),border-color .2s,visibility 0s .26s}
+  header .mnav.in.open{max-height:520px;padding-block:8px 18px;border-bottom-color:var(--dark-line);visibility:visible;transition:max-height .32s cubic-bezier(.23,1,.32,1),padding .32s cubic-bezier(.23,1,.32,1),border-color .3s,visibility 0s}
+  .mnav a{opacity:0;transform:translateY(-6px);transition:opacity .15s,transform .15s}
+  .mnav.open a{opacity:1;transform:none;transition:opacity .25s,transform .3s cubic-bezier(.23,1,.32,1);transition-delay:calc(var(--i,0)*30ms + 40ms)}
   .mnav .btn{display:inline-flex!important}
 }
 
@@ -149,7 +149,7 @@ section{padding-block:88px}
 .soft{background:var(--soft)}
 .sec-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px 40px;margin-bottom:40px}
 .sec-head>div{max-width:640px}
-.sec-head h2{font-size:clamp(32px,4.2vw,48px);font-weight:700;margin:12px 0 12px}
+.sec-head h2{font-size:clamp(32px,4.2vw,48px);font-weight:700;margin:0 0 12px}
 .sec-head p{color:var(--muted);font-size:18px}
 .kicker{font:600 13px var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
 
@@ -157,7 +157,7 @@ section{padding-block:88px}
 .svc-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
 @media (max-width:900px){.svc-grid{grid-template-columns:1fr}}
 .svc{background:var(--bg);border:1px solid var(--line);border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:14px;text-decoration:none;color:inherit;transition:border-color .2s,box-shadow .2s,transform .2s}
-.svc:hover{border-color:color-mix(in srgb,var(--mint) 60%,var(--line));box-shadow:var(--shadow);transform:translateY(-3px)}
+@media (hover:hover) and (pointer:fine){.svc:hover{border-color:color-mix(in srgb,var(--mint) 60%,var(--line));box-shadow:var(--shadow);transform:translateY(-3px)}}
 .svc .ic{width:52px;height:52px;border-radius:14px;background:var(--mint-soft);color:var(--accent);display:grid;place-items:center}
 .svc .ic svg{width:26px;height:26px}
 .svc h3{font-size:24px}
@@ -361,8 +361,6 @@ textarea{min-height:120px;resize:vertical}
 .home-hero::after{content:"";position:absolute;inset:-30%;background:radial-gradient(30% 35% at 70% 35%,rgba(62,230,168,.13),transparent 70%),radial-gradient(28% 32% at 18% 85%,rgba(70,150,255,.08),transparent 70%);pointer-events:none;z-index:0}
 .home-hero .in{z-index:1}
 @media (prefers-reduced-motion:no-preference){.home-hero::after{animation:drift 16s ease-in-out infinite alternate}@keyframes drift{to{transform:translate(-6%,4%) rotate(8deg)}}}
-.home-hero h1 span{background:linear-gradient(90deg,var(--mint),#8ff5cf,var(--mint));background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent}
-@media (prefers-reduced-motion:no-preference){.home-hero h1 span{animation:shine 6s linear infinite}@keyframes shine{to{background-position:-200% 0}}}
 /* chat animado */
 .typing{align-self:flex-start;background:#202c33;border-radius:10px;border-top-left-radius:2px;padding:12px 14px;display:flex;gap:4px}
 .typing.me{align-self:flex-end;background:#005c4b;border-radius:10px;border-top-right-radius:2px}
@@ -370,13 +368,13 @@ textarea{min-height:120px;resize:vertical}
 .typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
 @keyframes dot{0%,60%,100%{transform:none;opacity:.5}30%{transform:translateY(-4px);opacity:1}}
 .chat.play .msg,.chat.play+.x{opacity:0}
-.chat .msg.pop{animation:pop .45s cubic-bezier(.2,.9,.3,1.2) both}
+.chat .msg.pop{animation:pop .4s cubic-bezier(.23,1,.32,1) both}
 @keyframes pop{from{opacity:0;transform:translateY(10px) scale(.96)}to{opacity:1;transform:none}}
 .device.play .float{opacity:0;transform:translateY(12px) scale(.95)}
-.device .float{transition:opacity .5s,transform .6s cubic-bezier(.2,.9,.3,1.2)}
+.device .float{transition:opacity .4s,transform .5s cubic-bezier(.23,1,.32,1)}
 .device.play .float.pop{opacity:1;transform:none}
 /* aparecer al hacer scroll */
-.rv{opacity:0;transform:translateY(22px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+.rv{opacity:0;transform:translateY(14px);transition:opacity .6s cubic-bezier(.23,1,.32,1),transform .6s cubic-bezier(.23,1,.32,1);transition-delay:var(--d,0s)}
 .rv.on{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
 .svc,.work,.plan{transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s,opacity .8s cubic-bezier(.2,.7,.2,1)}
@@ -389,7 +387,7 @@ textarea{min-height:120px;resize:vertical}
 
 /* iPhone moderno */
 .device{width:min(100%,340px)}
-.phone{position:relative;background:#000;border-radius:60px;padding:9px;box-shadow:0 0 0 2.5px #a94f22,0 0 0 4px #e3925f,0 0 0 5.5px #7a3814,inset 0 0 0 1px #1a1a1a,0 50px 90px -35px rgba(0,0,0,.9),0 0 90px -25px rgba(227,120,60,.25)}
+.phone{position:relative;background:#000;border-radius:60px;padding:9px;box-shadow:0 0 0 2.5px #a94f22,0 0 0 4px #e3925f,0 0 0 5.5px #7a3814,inset 0 0 0 1px #1a1a1a,0 50px 90px -35px rgba(0,0,0,.9)}
 .phone .sb{position:absolute;width:4px;background:linear-gradient(90deg,#7a3814,#e3925f 60%,#a94f22);border-radius:2px}
 .phone .sb1{left:-8.5px;top:116px;height:26px}.phone .sb2{left:-8.5px;top:166px;height:54px}.phone .sb3{left:-8.5px;top:232px;height:54px}.phone .sb4{right:-8.5px;top:196px;height:86px}
 .screen{border-radius:51px;min-height:610px;position:relative}
@@ -438,9 +436,6 @@ textarea{min-height:120px;resize:vertical}
   .home-hero h1{animation-delay:.08s}.home-hero .sub{animation-delay:.18s}.home-hero .cta{animation-delay:.28s}.home-hero .proof{animation-delay:.38s}.home-hero .device{animation:upphone 1.1s .15s cubic-bezier(.2,.7,.2,1) both}
   @keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
   @keyframes upphone{from{opacity:0;transform:translateY(40px) scale(.96)}to{opacity:1;transform:none}}
-  /* iconos de servicios */
-  .svc.rv .ic{transform:scale(.5) rotate(-12deg);opacity:0;transition:transform .7s cubic-bezier(.2,.9,.3,1.3) .25s,opacity .4s .25s}
-  .svc.rv.on .ic{transform:none;opacity:1}
   /* antes / después */
   .ba-col.rv li{opacity:0;transform:translateX(-10px);transition:opacity .5s,transform .6s cubic-bezier(.2,.7,.2,1)}
   .ba-col.rv.on li{opacity:1;transform:none}
@@ -455,10 +450,6 @@ textarea{min-height:120px;resize:vertical}
   .timeline li.rv::before{transform:scaleY(0);transform-origin:top;transition:transform 1.1s cubic-bezier(.2,.7,.2,1) .35s}
   .timeline li.rv.on::before{transform:none}
   /* botón de WhatsApp */
-  .fab{animation:fabin .7s 1.2s cubic-bezier(.2,.9,.3,1.3) both}
-  .fab::before{content:"";position:absolute;inset:0;border-radius:inherit;background:var(--wa);z-index:-1;animation:ping 3.2s 2.5s cubic-bezier(.2,.7,.2,1) infinite}
-  @keyframes fabin{from{opacity:0;transform:translateY(20px) scale(.6)}to{opacity:1;transform:none}}
-  @keyframes ping{0%{transform:scale(1);opacity:.45}70%,100%{transform:scale(1.18,1.45);opacity:0}}
   .btn-mint{position:relative;overflow:hidden}
   .btn-mint::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.45) 50%,transparent 70%);transform:translateX(-120%);transition:transform .7s}
   .btn-mint:hover::after{transform:translateX(120%)}
@@ -493,6 +484,32 @@ footer .bottom{border-top:1px solid var(--dark-line);display:flex;flex-wrap:wrap
 /* botón flotante WhatsApp */
 .fab{position:fixed;right:max(18px,env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:30;width:58px;height:58px;border-radius:50%;background:var(--wa);color:#04210f;display:grid;place-items:center;box-shadow:0 12px 28px -8px rgba(0,0,0,.4);text-decoration:none}
 .fab svg{width:28px;height:28px}
+
+/* ===== v6: iconos junto al título, móvil más corto, movimiento más fino ===== */
+.svc{display:grid;grid-template-columns:auto minmax(0,1fr);grid-template-rows:auto 1fr auto;column-gap:12px;row-gap:12px;align-content:stretch}
+.svc .ic{width:auto;height:auto;background:none;border-radius:0;align-self:center}
+.svc .ic svg{width:26px;height:26px}
+.svc h3{align-self:center}
+.svc p,.svc .from{grid-column:1/-1}
+.svc p{align-self:start}
+.need div{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:10px;row-gap:8px;align-items:center}
+.need .ic{width:auto;height:auto;background:none;border-radius:0}
+.need p{grid-column:1/-1}
+@media (max-width:640px){
+  section{padding-block:60px}
+  .sec-head{margin-bottom:26px}
+  .home-hero{padding-block:44px 60px}
+  .home-hero .in{gap:40px}
+  .svc{padding:22px}
+  .ba-col{padding:24px}
+  .home-hero .device{width:min(100%,290px)}
+  .screen{min-height:470px}
+}
+/* botón de WhatsApp: solo icono en móvil y oculto mientras se ve la portada */
+.fab{transition:opacity .22s,transform .3s cubic-bezier(.23,1,.32,1),visibility 0s}
+body.hero-in .fab{opacity:0;transform:translateY(14px);visibility:hidden;transition:opacity .18s,transform .2s,visibility 0s .2s}
+.fab:active{transform:scale(.95)}
+@media (max-width:900px){a.fab{width:58px;padding:0;justify-content:center}a.fab span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}}
 </style>
 </head>
 <body>
@@ -526,9 +543,8 @@ footer .bottom{border-top:1px solid var(--dark-line);display:flex;flex-wrap:wrap
 <div class="view" id="v-inicio" data-view="inicio" data-title="Flowly · Webs y automatizaciones para negocios">
   <section class="hero home-hero"><div class="in">
     <div>
-      <span class="eyebrow">Negocios de Madrid</span>
-      <h1>Más clientes. <span>Menos tiempo al teléfono.</span></h1>
-      <p class="sub">Webs y automatizaciones para peluquerías, talleres, clínicas y bares. Te enseño una propuesta gratis antes de que pagues nada.</p>
+            <h1>Más clientes. <span>Menos tiempo al teléfono.</span></h1>
+      <p class="sub">Webs y automatizaciones para instaladores, talleres, empresas de reformas y academias de Madrid. Te enseño una propuesta gratis antes de que pagues nada.</p>
       <div class="cta">
         <a class="btn btn-mint" href="#contacto" data-go="contacto">Pide tu propuesta gratis</a>
         <a class="btn btn-ghost on-dark" href="#servicios" data-go="servicios">Ver precios</a>
@@ -546,7 +562,7 @@ footer .bottom{border-top:1px solid var(--dark-line);display:flex;flex-wrap:wrap
         <div class="chat">
           <span class="day">Hoy</span>
           <div class="typing me" hidden><i></i><i></i><i></i></div>
-          <div class="msg out">Buenos días, Laura. Le recordamos que mañana a las 10:30 tiene cita para corte y color. Si no puede venir, avísenos y le buscamos otro hueco. ¡Gracias!<time>09:02<svg class="tk" viewBox="0 0 18 11" aria-hidden="true"><path d="M1 6l3 3 6-7M7 9l1 1 7-8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></time></div>
+          <div class="msg out">Buenos días, Laura. Le recordamos que mañana a las 10:30 pasa nuestro técnico a revisar su caldera. Si no le viene bien, avísenos y le buscamos otro hueco. ¡Gracias!<time>09:02<svg class="tk" viewBox="0 0 18 11" aria-hidden="true"><path d="M1 6l3 3 6-7M7 9l1 1 7-8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></time></div>
           <div class="typing" hidden><i></i><i></i><i></i></div>
           <div class="msg in">¡Perfecto, allí estaré! Gracias por avisar 😊<time>09:15</time></div>
           <div class="msg out">¡Genial! Hasta mañana.<time>09:16<svg class="tk" viewBox="0 0 18 11" aria-hidden="true"><path d="M1 6l3 3 6-7M7 9l1 1 7-8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></time></div>
@@ -558,7 +574,7 @@ footer .bottom{border-top:1px solid var(--dark-line);display:flex;flex-wrap:wrap
   </div></section>
 
   <section><div class="in">
-    <div class="sec-head"><div><span class="kicker">Qué hago</span><h2>Tres formas de ahorrarte tiempo y ganar clientes</h2></div><a class="link" href="#servicios" data-go="servicios">Ver todos los precios <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    <div class="sec-head"><div><h2>Tres formas de ahorrarte tiempo y ganar clientes</h2></div><a class="link" href="#servicios" data-go="servicios">Ver todos los precios <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
     <div class="svc-grid">
       <a class="svc" href="#servicios" data-go="servicios" data-tab="webs">
         <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg></span>
@@ -579,7 +595,7 @@ footer .bottom{border-top:1px solid var(--dark-line);display:flex;flex-wrap:wrap
   </div></section>
 
   <section class="soft"><div class="in">
-    <div class="sec-head"><div><span class="kicker">El cambio</span><h2>Así cambia el día a día</h2></div></div>
+    <div class="sec-head"><div><h2>Así cambia el día a día</h2></div></div>
     <div class="ba">
       <div class="ba-col before">
         <h3>Sin Flowly</h3>
@@ -605,8 +621,7 @@ footer .bottom{border-top:1px solid var(--dark-line);display:flex;flex-wrap:wrap
   <section><div class="in">
     <div class="case-real">
       <div class="txt">
-        <span class="eyebrow">Caso real</span>
-        <h3>Una empresa de instalaciones solares de Madrid dejó de llamar para confirmar citas</h3>
+        <h3>Caso real: una empresa de instalaciones solares de Madrid dejó de llamar para confirmar citas</h3>
         <p>Cada mañana de lunes a viernes reciben un correo con las citas del día siguiente, sacadas de sus calendarios de Google. Al lado de cada cliente, un botón abre WhatsApp con el recordatorio ya escrito: su nombre, la hora y lo que tiene que preparar.</p>
         <div class="stats">
           <div class="stat"><b>5</b><small>calendarios en un solo correo</small></div>
@@ -627,7 +642,7 @@ footer .bottom{border-top:1px solid var(--dark-line);display:flex;flex-wrap:wrap
   </div></section>
 
   <section class="soft"><div class="in">
-    <div class="sec-head"><div><span class="kicker">Preguntas</span><h2>Lo que más me preguntan</h2></div><a class="link" href="#proceso" data-go="proceso">Ver cómo trabajo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    <div class="sec-head"><div><h2>Lo que más me preguntan</h2></div><a class="link" href="#proceso" data-go="proceso">Ver cómo trabajo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
     <div class="faq">
       <details><summary>¿Tengo que saber de ordenadores?</summary><p>No. Yo lo monto todo y te explico lo poco que tienes que hacer. Para los recordatorios, solo sigues apuntando las citas en tu calendario como siempre.</p></details>
       <details><summary>¿Me vas a pedir mis contraseñas?</summary><p>Nunca. Cuando haya que conectar tu Google o tu correo, lo haces tú pulsando «Conectar». Yo no veo tu contraseña en ningún momento.</p></details>
@@ -646,6 +661,7 @@ footer .bottom{border-top:1px solid var(--dark-line);display:flex;flex-wrap:wrap
   </div></section>
 
   <section><div class="in">
+    <h2 class="sr">Tarifas</h2>
     <div class="tabs" role="tablist" aria-label="Tipo de servicio">
       <button type="button" role="tab" id="t-webs" aria-selected="true" aria-controls="p-webs" data-tab="webs">Webs</button>
       <button type="button" role="tab" id="t-auto" aria-selected="false" aria-controls="p-auto" data-tab="auto">Automatizaciones</button>
@@ -667,7 +683,7 @@ footer .bottom{border-top:1px solid var(--dark-line);display:flex;flex-wrap:wrap
           <a class="btn btn-dark" href="#contacto" data-go="contacto" data-want="Web de una página">Quiero esta</a>
         </div>
         <div class="plan feat">
-          <span class="badge">Más elegido</span>
+          <span class="badge">Recomendado</span>
           <h3>Web + Google Maps</h3>
           <p class="desc">La web de una página y tu ficha de Google, bien hechas y enlazadas.</p>
           <div class="amount"><b>220 €</b><small>pago único · ahorras 20 €</small></div>
@@ -739,7 +755,7 @@ footer .bottom{border-top:1px solid var(--dark-line);display:flex;flex-wrap:wrap
     <div role="tabpanel" id="p-extra" aria-labelledby="t-extra" data-panel="extra" hidden>
       <div class="extras" style="margin-top:0">
         <div class="extra"><div><b>Ficha de Google Maps</b><small>Datos correctos, fotos y enlace a tu web</small></div><span class="p">40 €</span></div>
-        <div class="extra"><div><b>Carta digital con QR</b><small>Para bares; la cambias tú desde el móvil</small></div><span class="p">80 €</span></div>
+        <div class="extra"><div><b>Carta digital con QR</b><small>Tu carta o lista de precios; la cambias tú desde el móvil</small></div><span class="p">80 €</span></div>
         <div class="extra"><div><b>Cambios en tu web</b><small>Horarios, precios o fotos, cuando lo pidas</small></div><span class="p">15 €</span></div>
         <div class="extra"><div><b>Web online un año</b><small>Dominio y alojamiento incluidos</small></div><span class="p">35 €/año</span></div>
       </div>
@@ -748,7 +764,7 @@ footer .bottom{border-top:1px solid var(--dark-line);display:flex;flex-wrap:wrap
   </div></section>
 
   <section class="soft"><div class="in">
-    <div class="sec-head"><div><span class="kicker">Calculadora</span><h2>Calcula tu presupuesto</h2><p>Marca lo que te interesa y mira el total al momento.</p></div></div>
+    <div class="sec-head"><div><h2>Calcula tu presupuesto</h2><p>Marca lo que te interesa y mira el total al momento.</p></div></div>
     <div class="calc">
       <div class="opts" id="calc">
         <label class="opt" for="c1"><input type="checkbox" id="c1" data-price="200" data-name="Web de una página" data-group="web"><div><b>Web de una página</b><small>Servicios, fotos, horario y WhatsApp</small></div><span class="p">200 €</span></label>
@@ -756,7 +772,7 @@ footer .bottom{border-top:1px solid var(--dark-line);display:flex;flex-wrap:wrap
         <label class="opt" for="c3"><input type="checkbox" id="c3" data-price="40" data-name="Ficha de Google Maps"><div><b>Ficha de Google Maps</b><small>Datos correctos y fotos</small></div><span class="p">40 €</span></label>
         <label class="opt" for="c4"><input type="checkbox" id="c4" data-price="150" data-name="Recordatorios de citas" data-group="rec"><div><b>Recordatorios de citas</b><small>Pago único</small></div><span class="p">150 €</span></label>
         <label class="opt" for="c5"><input type="checkbox" id="c5" data-price="80" data-monthly="10" data-name="Recordatorios + mantenimiento" data-group="rec"><div><b>Recordatorios + mantenimiento</b><small>80 € y 10 € al mes</small></div><span class="p">80 € + 10/mes</span></label>
-        <label class="opt" for="c6"><input type="checkbox" id="c6" data-price="80" data-name="Carta digital con QR"><div><b>Carta digital con QR</b><small>Para bares</small></div><span class="p">80 €</span></label>
+        <label class="opt" for="c6"><input type="checkbox" id="c6" data-price="80" data-name="Carta digital con QR"><div><b>Carta digital con QR</b><small>Carta o lista de precios</small></div><span class="p">80 €</span></label>
       </div>
       <div class="total" aria-live="polite">
         <span class="lbl">Total aproximado</span>
@@ -777,6 +793,7 @@ footer .bottom{border-top:1px solid var(--dark-line);display:flex;flex-wrap:wrap
     <p>Un caso real y diseños de muestra para distintos tipos de negocio.</p>
   </div></section>
   <section><div class="in">
+    <h2 class="sr">Caso real y diseños de muestra</h2>
     <div class="filters" role="group" aria-label="Filtrar trabajos">
       <button type="button" aria-pressed="true" data-f="all">Todos</button>
       <button type="button" aria-pressed="false" data-f="web">Webs</button>
@@ -814,33 +831,33 @@ footer .bottom{border-top:1px solid var(--dark-line);display:flex;flex-wrap:wrap
         </div>
       </article>
       <article class="work" data-kind="web">
-        <div class="browser" style="--b1:#efe3da;--b2:#fffaf6;--b3:#4a2c22;--b4:#8a6b5f;--b5:#c79c86;--b6:#f3e6dd" aria-hidden="true">
-          <div class="bwin"><div class="bbar"><i></i><i></i><i></i><span>estudionura.es</span></div>
-            <div class="bnav">ESTUDIO NURA<em>Reservar</em></div>
-            <div class="bhero"><div><h4>Color y corte a tu medida</h4><p>Peluquería de autor. Mira nuestros trabajos y reserva en un minuto.</p><span class="pill">Ver precios</span></div><div class="bimg"><svg viewBox="0 0 200 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="200" height="200" fill="#c79c86"/><circle cx="100" cy="92" r="70" fill="#d8b19c"/><path d="M62 150 Q60 70 100 56 Q144 50 142 112 Q140 140 152 160 Q120 150 118 118 Q112 84 100 84 Q82 86 84 120 Q86 150 62 150Z" fill="#4a2c22"/><ellipse cx="100" cy="112" rx="22" ry="28" fill="#f3d9c8"/><path d="M78 100 Q84 70 112 76 Q100 82 96 96Z" fill="#4a2c22"/><rect x="70" y="160" width="60" height="40" rx="20" fill="#fffaf6"/><g transform="translate(160 58) rotate(-30)" fill="none" stroke="#fffaf6" stroke-width="4"><circle cx="-8" cy="22" r="7"/><circle cx="8" cy="22" r="7"/><path d="M-4 16 L8 -18 M4 16 L-8 -18" stroke-linecap="round"/></g><g transform="translate(34 60) rotate(20)"><rect x="-4" y="-22" width="8" height="44" rx="3" fill="#fffaf6"/><path d="M4 -18 h8 M4 -10 h8 M4 -2 h8 M4 6 h8 M4 14 h8" stroke="#fffaf6" stroke-width="3"/></g></svg></div></div>
+        <div class="browser" style="--b1:#e8e1d5;--b2:#fdfbf7;--b3:#2e3a2b;--b4:#6b7264;--b5:#b9643a;--b6:#f0eadf" aria-hidden="true">
+          <div class="bwin"><div class="bbar"><i></i><i></i><i></i><span>reformasalba.es</span></div>
+            <div class="bnav">REFORMAS ALBA<em>Pedir presupuesto</em></div>
+            <div class="bhero"><div><h4>Tu reforma, con fecha y precio cerrado</h4><p>Cocinas, baños y pintura. Te mandamos el presupuesto por escrito.</p><span class="pill">Ver obras</span></div><div class="bimg"><svg viewBox="0 0 200 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="200" height="200" fill="#b9643a"/><rect x="0" y="0" width="112" height="200" fill="#f0eadf"/><rect y="164" width="200" height="36" fill="#7a4126"/><rect y="164" width="112" height="36" fill="#d9cdb8"/><path d="M112 0 V164" stroke="#8f4b2b" stroke-width="2"/><rect x="104" y="58" width="58" height="26" rx="8" fill="#2e3a2b"/><rect x="108" y="62" width="50" height="18" rx="5" fill="#f0eadf"/><path d="M162 71 h12 v34 h-38 v22" fill="none" stroke="#2e3a2b" stroke-width="5" stroke-linejoin="round"/><rect x="129" y="125" width="14" height="40" rx="5" fill="#2e3a2b"/><g fill="#2e3a2b"><rect x="24" y="104" width="6" height="60" rx="2"/><rect x="58" y="104" width="6" height="60" rx="2"/><rect x="24" y="116" width="40" height="5" rx="2"/><rect x="24" y="134" width="40" height="5" rx="2"/><rect x="24" y="152" width="40" height="5" rx="2"/></g></svg></div></div>
+            <div class="bcards"><span></span><span></span><span></span></div>
+          </div>
+        </div>
+        <div class="work-b">
+          <div class="chips"><span class="chip">Diseño de muestra</span><span class="chip g">Web completa</span></div>
+          <h3>Empresa de reformas</h3>
+          <p>Obras terminadas, lo que hacéis y un botón para pedir presupuesto con fotos.</p>
+          <details><summary>Qué incluye <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary><ul><li>Galería de obras con el antes y el después.</li><li>Servicios: cocinas, baños, pintura…</li><li>Presupuesto por WhatsApp con fotos de la obra.</li></ul></details>
+        </div>
+      </article>
+      <article class="work" data-kind="web">
+        <div class="browser" style="--b1:#dde5f4;--b2:#ffffff;--b3:#1c2a5a;--b4:#5a6589;--b5:#2f4a9e;--b6:#e9eefa" aria-hidden="true">
+          <div class="bwin"><div class="bbar"><i></i><i></i><i></i><span>academiaindice.es</span></div>
+            <div class="bnav">ACADEMIA ÍNDICE<em>Clase de prueba</em></div>
+            <div class="bhero"><div><h4>Refuerzo de primaria a bachillerato</h4><p>Grupos pequeños de matemáticas, inglés y lengua.</p><span class="pill">Ver horarios</span></div><div class="bimg"><svg viewBox="0 0 200 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="200" height="200" fill="#2f4a9e"/><rect x="22" y="30" width="156" height="96" rx="6" fill="#1c3a2e"/><rect x="22" y="30" width="156" height="96" rx="6" fill="none" stroke="#c9a46a" stroke-width="6"/><g fill="none" stroke="#e9eefa" stroke-width="4" stroke-linecap="round"><path d="M44 62 h18 M53 53 v18"/><path d="M76 62 h14"/><path d="M104 56 h16 M104 68 h16"/><path d="M134 54 q12 -6 12 6 q0 8 -12 14 h14"/><path d="M44 100 q18 -14 36 0 t36 0"/></g><rect y="150" width="200" height="50" fill="#1c2a5a"/><g transform="translate(48 132)"><rect width="60" height="18" rx="2" fill="#ffd166"/><rect y="18" width="60" height="16" rx="2" fill="#e9eefa"/><rect x="0" y="18" width="8" height="16" fill="#ef6f6c"/></g><g transform="translate(150 120) rotate(35)"><rect x="-5" y="0" width="10" height="46" rx="2" fill="#ffd166"/><path d="M-5 46 L0 58 L5 46Z" fill="#f3d9b5"/><rect x="-5" y="-8" width="10" height="9" rx="2" fill="#ef6f6c"/></g></svg></div></div>
             <div class="bcards"><span></span><span></span><span></span></div>
           </div>
         </div>
         <div class="work-b">
           <div class="chips"><span class="chip">Diseño de muestra</span><span class="chip g">Web de una página</span></div>
-          <h3>Peluquería</h3>
-          <p>Fotos de los trabajos, servicios con precio y un botón para reservar.</p>
-          <details><summary>Qué incluye <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary><ul><li>Galería de cortes y colores.</li><li>Lista de servicios con precio.</li><li>Reserva por WhatsApp o por su app de citas.</li></ul></details>
-        </div>
-      </article>
-      <article class="work" data-kind="web">
-        <div class="browser" style="--b1:#2b1a14;--b2:#fbf3e4;--b3:#8f2a1d;--b4:#6d5547;--b5:#3b2a22;--b6:#f1e3cc" aria-hidden="true">
-          <div class="bwin"><div class="bbar"><i></i><i></i><i></i><span>barlaesquina.es</span></div>
-            <div class="bnav">BAR LA ESQUINA<em>Ver carta</em></div>
-            <div class="bhero"><div><h4>Cocina casera desde 1992</h4><p>Menú del día, raciones y pedidos para llevar.</p><span class="pill">Menú de hoy</span></div><div class="bimg"><svg viewBox="0 0 200 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="200" height="200" fill="#3b2a22"/><rect y="132" width="200" height="68" fill="#6d4a35"/><path d="M0 132 h200" stroke="#8a5f44" stroke-width="3"/><ellipse cx="88" cy="128" rx="62" ry="20" fill="#e9dcc6"/><ellipse cx="88" cy="122" rx="62" ry="20" fill="#fbf3e4"/><ellipse cx="88" cy="120" rx="44" ry="13" fill="#e9dcc6"/><circle cx="72" cy="114" r="10" fill="#e8a33d"/><circle cx="90" cy="110" r="10" fill="#d9822b"/><circle cx="106" cy="116" r="9" fill="#e8a33d"/><path d="M74 104 q4 -6 10 -2 M98 102 q5 -5 10 0" stroke="#5d8f3a" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M150 86 h30 v34 q0 12 -15 12 q-15 0 -15 -12z" fill="#fbf3e4"/><path d="M180 94 q12 0 12 10 q0 10 -12 10" fill="none" stroke="#fbf3e4" stroke-width="5"/><ellipse cx="165" cy="88" rx="13" ry="3" fill="#6b3e26"/><path d="M158 74 q-6 -10 0 -18 q6 -8 0 -16 M172 74 q-6 -10 0 -18 q6 -8 0 -16" stroke="rgba(255,255,255,.35)" stroke-width="3" fill="none" stroke-linecap="round"/></svg></div></div>
-            <div class="bcards"><span></span><span></span><span></span></div>
-          </div>
-        </div>
-        <div class="work-b">
-          <div class="chips"><span class="chip">Diseño de muestra</span><span class="chip g">Carta con QR</span></div>
-          <h3>Bar y restaurante</h3>
-          <p>La carta siempre al día, con un QR para las mesas y enlazada en Google Maps.</p>
-          <details><summary>Qué incluye <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary><ul><li>Carta que el bar cambia desde el móvil.</li><li>Menú del día destacado.</li><li>Pedidos para llevar por WhatsApp.</li></ul></details>
+          <h3>Academia de refuerzo</h3>
+          <p>Asignaturas, horarios y una clase de prueba que las familias reservan por WhatsApp.</p>
+          <details><summary>Qué incluye <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary><ul><li>Asignaturas y cursos.</li><li>Horarios y precio al mes.</li><li>Reserva de la clase de prueba por WhatsApp.</li></ul></details>
         </div>
       </article>
     </div>
@@ -857,6 +874,7 @@ footer .bottom{border-top:1px solid var(--dark-line);display:flex;flex-wrap:wrap
     <p>Sin tecnicismos y sin pagar nada hasta que veas cómo queda.</p>
   </div></section>
   <section><div class="in">
+    <h2 class="sr">Los cuatro pasos</h2>
     <ol class="timeline">
       <li><span class="num">1</span><div><h3>Me escribes <small>5 minutos</small></h3><p>Me cuentas a qué se dedica tu negocio, qué te quita tiempo y qué te gustaría mejorar. Por WhatsApp o por el formulario.</p></div></li>
       <li><span class="num">2</span><div><h3>Propuesta gratis <small>2–3 días</small></h3><p>Te preparo cómo quedaría tu web o la automatización, con tu nombre y tus datos. Sin coste y sin compromiso.</p></div></li>
@@ -865,7 +883,7 @@ footer .bottom{border-top:1px solid var(--dark-line);display:flex;flex-wrap:wrap
     </ol>
   </div></section>
   <section class="soft"><div class="in">
-    <div class="sec-head"><div><span class="kicker">Qué necesito de ti</span><h2>Muy poco</h2></div></div>
+    <div class="sec-head"><div><h2>Qué necesito de ti: muy poco</h2></div></div>
     <div class="need">
       <div><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><circle cx="9" cy="11" r="2"/><path d="M21 16l-5-5-8 8"/></svg></span><h3>Fotos</h3><p>De tu local, tus trabajos o tu equipo. Las del móvil sirven.</p></div>
       <div><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg></span><h3>Tus servicios</h3><p>Lo que haces y, si quieres, los precios.</p></div>
@@ -873,7 +891,7 @@ footer .bottom{border-top:1px solid var(--dark-line);display:flex;flex-wrap:wrap
     </div>
   </div></section>
   <section><div class="in">
-    <div class="sec-head"><div><span class="kicker">Mi compromiso</span><h2>Trabajo con tranquilidad</h2></div></div>
+    <div class="sec-head"><div><h2>Trabajo con tranquilidad</h2></div></div>
     <div class="guar">
       <div><h3>Sin sorpresas</h3><p>Precio cerrado antes de empezar. Lo que te digo es lo que pagas.</p></div>
       <div><h3>Todo es tuyo</h3><p>La web y el dominio van a nombre de tu negocio, no al mío.</p></div>
@@ -891,13 +909,14 @@ footer .bottom{border-top:1px solid var(--dark-line);display:flex;flex-wrap:wrap
     <p>Rellena esto y se abrirá WhatsApp con tu mensaje ya escrito. Te contesto el mismo día.</p>
   </div></section>
   <section><div class="in contact-grid">
+    <h2 class="sr">Formulario y datos de contacto</h2>
     <form class="card" id="cform" novalidate>
       <div class="row2">
         <label class="f" for="f-name">Tu nombre<input id="f-name" name="name" autocomplete="name" placeholder="Ej.: Laura"></label>
-        <label class="f" for="f-biz">Nombre del negocio<input id="f-biz" name="biz" autocomplete="organization" placeholder="Ej.: Peluquería Laura"></label>
+        <label class="f" for="f-biz">Nombre del negocio<input id="f-biz" name="biz" autocomplete="organization" placeholder="Ej.: Reformas García"></label>
       </div>
       <label class="f" for="f-type">Tipo de negocio
-        <select id="f-type" name="type"><option value="">Elige uno</option><option>Peluquería o barbería</option><option>Estética</option><option>Taller</option><option>Clínica o fisioterapia</option><option>Bar o restaurante</option><option>Academia o autoescuela</option><option>Otro</option></select>
+        <select id="f-type" name="type"><option value="">Elige uno</option><option>Climatización o calderas</option><option>Taller mecánico</option><option>Reformas</option><option>Academia de refuerzo</option><option>Otro</option></select>
       </label>
       <fieldset style="border:0;padding:0;margin:0;display:flex;flex-direction:column;gap:8px"><legend class="f" style="font-size:14px;font-weight:600;color:var(--ink-2);margin-bottom:6px">¿Qué te interesa?</legend>
         <div class="checks" id="f-want">
@@ -1043,6 +1062,12 @@ footer .bottom{border-top:1px solid var(--dark-line);display:flex;flex-wrap:wrap
     const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;io.unobserve(e.target);const el=e.target,txt=el.textContent,m=txt.match(/^(\d+)(.*)$/);if(!m)return;const end=+m[1],t0=performance.now(),D=1100;
       (function f(t){const k=Math.min(1,(t-t0)/D),v=Math.round(end*(1-Math.pow(1-k,3)));el.textContent=v+m[2];if(k<1)requestAnimationFrame(f)})(t0)}),{threshold:.6});
     st.forEach(b=>io.observe(b));
+  })();
+
+  /* botón de WhatsApp oculto mientras se ve la portada del inicio */
+  (function(){
+    const hero=$(".home-hero");if(!hero||!("IntersectionObserver" in window))return;
+    new IntersectionObserver(es=>es.forEach(e=>document.body.classList.toggle("hero-in",e.isIntersecting)),{rootMargin:"0px 0px -15% 0px"}).observe(hero);
   })();
 
   /* pestañas de precios */
