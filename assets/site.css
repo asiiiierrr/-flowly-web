@@ -403,3 +403,4 @@ body.hero-in .fab{opacity:0;transform:translateY(14px);visibility:hidden;transit
 .pm-act{display:flex;gap:8px;padding:6px 16px 18px}
 .pm-act span{flex:1;text-align:center;border:1px solid #d6d9dc;border-radius:18px;padding:8px 0;font-size:13px;color:#333}
 @media (prefers-reduced-motion:no-preference){.fig.on .pm-row:nth-child(4) .pm-wa{animation:tap 2.4s 1.2s ease-in-out}@keyframes tap{0%,100%{transform:none}10%{transform:scale(.9)}20%{transform:scale(1.05)}30%{transform:none}}}
+.range .price .mo{text-transform:none;letter-spacing:0;font-size:15px;font-weight:600;color:var(--ink-2);margin-top:2px}
