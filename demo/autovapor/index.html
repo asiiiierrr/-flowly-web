@@ -270,6 +270,10 @@ body:after{content:"";position:fixed;inset:-50%;z-index:60;pointer-events:none;o
 .marq.dark span{color:#fff}.marq.dark span:after{background:var(--red)}
 .mag{transition:transform .35s var(--ease)}
 @media (prefers-reduced-motion:reduce){.js .slice:not(.joined) .sl{transform:none}}
+
+/* Safari iOS: tapar la zona del reloj y la de la barra de direcciones */
+header:before{content:"";position:absolute;left:0;right:0;bottom:100%;height:160px;background:var(--ink)}
+.mbar:after{content:"";position:absolute;left:0;right:0;top:100%;height:160px;background:var(--ink)}
 </style>
 </head>
 <body>
