@@ -265,6 +265,19 @@ body:after{content:"";position:fixed;inset:-50%;z-index:60;pointer-events:none;o
 .marq.dark span{color:#fff}.marq.dark span:after{background:var(--red)}
 .mag{transition:transform .35s var(--ease)}
 @media (prefers-reduced-motion:reduce){.js .slice:not(.joined) .sl{transform:none}}
+
+/* botones flotantes */
+.fab{position:fixed;right:calc(16px + env(safe-area-inset-right));bottom:calc(18px + env(safe-area-inset-bottom));z-index:30;display:flex;flex-direction:column;gap:12px}
+.fab a{width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;box-shadow:0 8px 20px -6px rgba(0,0,0,.55);transition:transform .2s var(--ease)}
+.fab a:hover{transform:scale(1.08)}.fab a:active{transform:scale(.94)}
+.fab svg{width:26px;height:26px}
+.fab .tel{background:var(--red)}
+.fab .wa{background:#25D366}
+.js .fab a{opacity:0;transform:scale(.4)}
+.fab.in a{opacity:1;transform:none;transition:opacity .4s,transform .5s var(--ease)}
+.fab.in a:nth-child(2){transition-delay:.08s}
+.menu-open .fab{opacity:0;pointer-events:none}
+@media (prefers-reduced-motion:reduce){.js .fab a{transform:none}}
 </style>
 </head>
 <body>
@@ -423,6 +436,10 @@ body:after{content:"";position:fixed;inset:-50%;z-index:60;pointer-events:none;o
   <div><h4>WhatsApp</h4><a class="phone" href="https://wa.me/34696292322" target="_blank" rel="noopener">696 292 322</a><a href="https://instagram.com/autovapor05" target="_blank" rel="noopener">@autovapor05</a></div>
 </div></footer>
 
+<div class="fab" id="fab">
+  <a class="tel" href="tel:+34696292322" aria-label="Llamar al 696 292 322"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.2 15.2 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1z"/></svg></a>
+  <a class="wa" href="https://wa.me/34696292322" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.3-.4.8-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.5-.3Z"/></svg></a>
+</div>
 
 <script>
 const RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
@@ -583,6 +600,7 @@ if(!RM&&matchMedia('(hover:hover) and (pointer:fine)').matches){
   b.addEventListener('pointerleave',()=>b.style.transform='')})}
 // logo grande del pie
 
+setTimeout(()=>$('fab').classList.add('in'),900);
 route();
 </script>
 </body>
